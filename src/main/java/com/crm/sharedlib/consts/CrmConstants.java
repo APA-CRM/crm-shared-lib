@@ -6,4 +6,8 @@ public class CrmConstants {
 
     public final static String USER_LOGIN_HEADER_NAME = "User-Login";
 
+    public final static String SEND_PASSWORD_QUEUE = "main-service.send-password";
+
+    public final static String SEND_WELCOME_EMAIL_QUEUE = "main-service.send-welcome-email";
+
 }
