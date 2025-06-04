@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+// TODO: Rename this class: add suffix "Event", remove prefix "Send"
 public class SendPasswordEmail {
 
     private String email;
