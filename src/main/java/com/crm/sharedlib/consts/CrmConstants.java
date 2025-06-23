@@ -14,4 +14,6 @@ public class CrmConstants {
 
     public final static String ORGANIZATION_USER_ROLES_SYNC_QUEUE = "auth-service.org-user-role-sync";
 
+    public final static String SEND_INVITATION_OF_ORGANIZATION = "main-service.send-invitation-of-organization";
+
 }
