@@ -13,7 +13,7 @@
 
     <groupId>com.crm</groupId>
     <artifactId>sharedlib</artifactId>
-    <version>0.0.9-SNAPSHOT</version>
+    <version>0.0.10-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>shared-lib</name>

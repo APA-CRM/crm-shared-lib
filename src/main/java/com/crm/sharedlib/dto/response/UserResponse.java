@@ -19,6 +19,10 @@ public class UserResponse {
 
     private String lastName;
 
+    private String phoneNumber;
+
+    private String aboutYourself;
+
     private Instant createdAt;
 
     private Instant updateAt;
