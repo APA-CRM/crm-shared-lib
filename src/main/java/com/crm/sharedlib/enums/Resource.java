@@ -13,7 +13,8 @@ public enum Resource {
     USERS_ROLES("Users-Roles"),
     ORGANIZATIONS("Organizations"),
     ROLES("Roles"),
-    INVITATIONS("Invitations");
+    INVITATIONS("Invitations"),
+    FILES("Files");
 
     @JsonValue
     private final String name;
