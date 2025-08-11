@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+// TODO: Use prefix 'Message' instead of Event
 public class SendPasswordByEmailEvent {
 
     private String email;

@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+// TODO: Use prefix 'Message' instead of Event
 public class OrgUserRoleChangedEvent {
 
     private Long organizationId;

@@ -11,6 +11,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+// TODO: Use prefix 'Message' instead of Event
 public class SendInvitationOfOrganizationEvent {
 
     private String email;
