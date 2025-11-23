@@ -21,6 +21,7 @@
 
     <modules>
         <module>core</module>
+        <module>messaging</module>
     </modules>
 
     <properties>

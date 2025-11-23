@@ -16,4 +16,6 @@ public class CrmConstants {
 
     public final static String SEND_INVITATION_OF_ORGANIZATION = "notification-service.send-invitation-of-organization";
 
+    public final static String SEND_MESSAGE_QUEUE = "notification-service.send-message";
+
 }
