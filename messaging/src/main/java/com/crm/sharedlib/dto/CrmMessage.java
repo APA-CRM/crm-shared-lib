@@ -5,14 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Map;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class CrmMessage {
 
-    private String messageType;
+    private String code;
 
     private String message;
 
+    private Map<String, Object> details;
 }

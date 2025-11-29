@@ -2,8 +2,6 @@ package com.crm.sharedlib.dto;
 
 import lombok.*;
 
-import java.util.Map;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -14,7 +12,5 @@ public class CrmNotification {
     private CrmRecipient recipient;
 
     private CrmMessage message;
-
-    private Map<String, Object> details;
 
 }

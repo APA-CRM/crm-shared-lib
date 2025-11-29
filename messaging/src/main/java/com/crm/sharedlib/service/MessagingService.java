@@ -20,46 +20,45 @@ public class MessagingService {
 
     private final RabbitTemplate rabbitTemplate;
 
-    public void sendMessageToUser(Long userId, String messageType, String message) {
-        sendMessageToUser(userId, messageType, message, null);
+    public void sendMessageToUser(Long userId, String messageCode, String message) {
+        sendMessageToUser(userId, messageCode, message, null);
     }
 
     public void sendMessageToUser(
-            Long userId, String messageType,
+            Long userId, String messageCode,
             String message, @Nullable Map<String, Object> details
     ) {
         sendMessage(
                 new CrmRecipient(userId, RecipientType.USER),
-                messageType, message, details
+                messageCode, message, details
         );
     }
 
-    public void sendMessageToOrganization(Long organizationId, String messageType, String message) {
-        sendMessageToOrganization(organizationId, messageType, message, null);
+    public void sendMessageToOrganization(Long organizationId, String messageCode, String message) {
+        sendMessageToOrganization(organizationId, messageCode, message, null);
     }
 
     public void sendMessageToOrganization(
-            Long organizationId, String messageType,
+            Long organizationId, String messageCode,
             String message, @Nullable Map<String, Object> details
     ) {
         sendMessage(
                 new CrmRecipient(organizationId, RecipientType.ORGANIZATION),
-                messageType, message, details
+                messageCode, message, details
         );
     }
 
     private void sendMessage(
-            CrmRecipient recipient, String messageType,
+            CrmRecipient recipient, String messageCode,
             String message, @Nullable Map<String, Object> details
     ) {
-        log.debug("Sending message of type {} to recipient type {} with ID {}",
-                messageType, recipient.getType(), recipient.getId()
+        log.debug("Sending message of code {} to recipient type {} with ID {}",
+                messageCode, recipient.getType(), recipient.getId()
         );
 
         CrmNotification crmNotification = CrmNotification.builder()
                 .recipient(recipient)
-                .message(new CrmMessage(messageType, message))
-                .details(details)
+                .message(new CrmMessage(messageCode, message, details))
                 .build();
 
         rabbitTemplate.convertAndSend(CrmConstants.SEND_MESSAGE_QUEUE, crmNotification);
