@@ -21,48 +21,65 @@ public class MessagingService {
 
     private final RabbitTemplate rabbitTemplate;
 
-    public void sendMessageToUser(Long userId, String messageCode, String message) {
-        sendMessageToUser(userId, messageCode, message, null);
+    public void sendMessageToUser(
+            Long userId, String title,
+            String messageCode, String message
+    ) {
+        sendMessageToUser(userId, title, messageCode, message, null);
     }
 
     public void sendMessageToUser(
-            Long userId, String messageCode,
+            Long userId, String title, String messageCode,
             String message, @Nullable Map<String, Object> details
     ) {
         sendMessage(
                 new CrmRecipient(userId, RecipientType.USER),
-                messageCode, message, details
+                title, messageCode, message, details
         );
     }
 
-    public void sendMessageToOrganization(Long organizationId, String messageCode, String message) {
-        sendMessageToOrganization(organizationId, messageCode, message, null);
+    public void sendMessageToOrganization(
+            Long organizationId, String title,
+            String messageCode, String message
+    ) {
+        sendMessageToOrganization(organizationId, title, messageCode, message, null);
     }
 
     public void sendMessageToOrganization(
-            Long organizationId, String messageCode,
+            Long organizationId, String title, String messageCode,
             String message, @Nullable Map<String, Object> details
     ) {
         sendMessage(
                 new CrmRecipient(organizationId, RecipientType.ORGANIZATION),
-                messageCode, message, details
+                title, messageCode, message, details
         );
     }
 
     private void sendMessage(
-            CrmRecipient recipient, String messageCode,
-            String message, @Nullable Map<String, Object> details
+            CrmRecipient recipient,
+            String title, String messageCode, String message,
+            @Nullable Map<String, Object> details
     ) {
         log.debug("Sending message of code {} to recipient type {} with ID {}",
                 messageCode, recipient.getType(), recipient.getId()
         );
 
-        CrmNotification crmNotification = CrmNotification.builder()
-                .recipient(recipient)
-                .message(new CrmMessage(messageCode, message, details))
-                .build();
+        try {
+            CrmNotification crmNotification = CrmNotification.builder()
+                    .recipient(recipient)
+                    .message(new CrmMessage(title, messageCode, message, details))
+                    .build();
 
-        rabbitTemplate.convertAndSend(SEND_MESSAGE_QUEUE, crmNotification);
+            rabbitTemplate.convertAndSend(SEND_MESSAGE_QUEUE, crmNotification);
+
+            log.debug("A message of code {} to recipient type {} with ID {} has been sent",
+                    messageCode, recipient.getType(), recipient.getId()
+            );
+        } catch (Exception e) {
+            log.error("A message of code {} to recipient type {} with ID {} has not been sent",
+                    messageCode, recipient.getType(), recipient.getId(), e
+            );
+        }
     }
 
 }

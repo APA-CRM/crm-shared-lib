@@ -13,6 +13,8 @@ import java.util.Map;
 @Setter
 public class CrmMessage {
 
+    private String title;
+
     private String code;
 
     private String message;
