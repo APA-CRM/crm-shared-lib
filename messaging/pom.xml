@@ -37,13 +37,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>com.crm</groupId>
-            <artifactId>core</artifactId>
-            <version>0.1.2-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
 
 </project>

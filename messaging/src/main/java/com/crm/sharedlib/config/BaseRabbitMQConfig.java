@@ -2,7 +2,6 @@ package com.crm.sharedlib.config;
 
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
@@ -11,19 +10,18 @@ import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
-@EnableRabbit
+import static java.util.Objects.nonNull;
+
 public abstract class BaseRabbitMQConfig {
 
     @Value("${spring.rabbitmq.host}")
     private String host;
     @Value("${spring.rabbitmq.port}")
     private Integer port;
-    @Value("${spring.rabbitmq.username}")
+    @Value("${spring.rabbitmq.username:#{null}}")
     private String username;
-    @Value("${spring.rabbitmq.password}")
+    @Value("${spring.rabbitmq.password:#{null}}")
     private String password;
 
     @Bean
@@ -35,8 +33,12 @@ public abstract class BaseRabbitMQConfig {
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory factory = new CachingConnectionFactory(host, port);
 
-        factory.setUsername(username);
-        factory.setPassword(password);
+        if (nonNull(username)) {
+            factory.setUsername(username);
+        }
+        if (nonNull(password)) {
+            factory.setPassword(password);
+        }
 
         return factory;
     }

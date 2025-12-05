@@ -7,7 +7,7 @@ import org.springframework.lang.Nullable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.crm.sharedlib.consts.CrmConstants.ORGANIZATION_ID_HEADER_NAME;
+import static com.crm.sharedlib.consts.CrmHeaders.ORGANIZATION_ID_HEADER_NAME;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 

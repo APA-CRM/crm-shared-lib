@@ -1,6 +1,5 @@
 package com.crm.sharedlib.service;
 
-import com.crm.sharedlib.consts.CrmConstants;
 import com.crm.sharedlib.dto.CrmMessage;
 import com.crm.sharedlib.dto.CrmNotification;
 import com.crm.sharedlib.dto.CrmRecipient;
@@ -12,6 +11,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+
+import static com.crm.sharedlib.constants.RabbitMQConstants.SEND_MESSAGE_QUEUE;
 
 @Service
 @RequiredArgsConstructor
@@ -61,7 +62,7 @@ public class MessagingService {
                 .message(new CrmMessage(messageCode, message, details))
                 .build();
 
-        rabbitTemplate.convertAndSend(CrmConstants.SEND_MESSAGE_QUEUE, crmNotification);
+        rabbitTemplate.convertAndSend(SEND_MESSAGE_QUEUE, crmNotification);
     }
 
 }
