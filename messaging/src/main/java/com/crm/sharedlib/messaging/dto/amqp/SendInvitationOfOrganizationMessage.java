@@ -1,4 +1,4 @@
-package com.crm.sharedlib.core.dto.amqp;
+package com.crm.sharedlib.messaging.dto.amqp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,15 +7,11 @@ import lombok.Setter;
 
 import java.util.UUID;
 
-/**
- * @deprecated Use DTOs for AMPQ from the messaging module
- */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Deprecated(forRemoval = true)
-public class SendInvitationOfOrganizationEvent {
+public class SendInvitationOfOrganizationMessage {
 
     private String email;
 
