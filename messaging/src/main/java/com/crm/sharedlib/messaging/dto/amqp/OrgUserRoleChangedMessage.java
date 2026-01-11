@@ -1,19 +1,15 @@
-package com.crm.sharedlib.core.dto.amqp;
+package com.crm.sharedlib.messaging.dto.amqp;
 
 import lombok.*;
 
 import java.util.List;
 
-/**
- * @deprecated Use DTOs for AMPQ from the messaging module
- */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Deprecated(forRemoval = true)
-public class OrgUserRoleChangedEvent {
+public class OrgUserRoleChangedMessage {
 
     private Long organizationId;
 

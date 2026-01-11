@@ -1,19 +1,15 @@
-package com.crm.sharedlib.core.dto.amqp;
+package com.crm.sharedlib.messaging.dto.amqp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * @deprecated Use DTOs for AMPQ from the messaging module
- */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Deprecated(forRemoval = true)
-public class SendPasswordByEmailEvent {
+public class SendPasswordByEmailMessage {
 
     private String email;
 
