@@ -13,7 +13,7 @@
 
     <groupId>com.crm</groupId>
     <artifactId>sharedlib</artifactId>
-    <version>0.1.3-SNAPSHOT</version>
+    <version>0.1.5-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>shared-lib</name>

@@ -7,12 +7,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class AuthorizationRequest {
+@AllArgsConstructor
+public class AuthorizationWithUriAndHttpMethodRequest extends AuthorizationRequest {
 
-    private String accessToken;
+    private String httpMethodName;
 
-    private String userAgent;
+    private String uri;
 
 }

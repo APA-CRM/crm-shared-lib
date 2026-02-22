@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 public class AuthResponse {
 
-    private Integer id;
+    private Long id;
 
     private String login;
 
