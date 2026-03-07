@@ -13,8 +13,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class  UserPermission implements Serializable {
+public class UserPermission implements Serializable {
 
-    private List<ResourcePermission> resourcePermissions = new ArrayList<>();
+    private List<ResourcePermission> resourcePermissions;
 
 }
