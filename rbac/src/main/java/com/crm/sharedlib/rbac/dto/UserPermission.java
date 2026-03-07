@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,6 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 public class  UserPermission implements Serializable {
 
-    private List<ResourcePermission> resourcePermissions;
+    private List<ResourcePermission> resourcePermissions = new ArrayList<>();
 
 }
