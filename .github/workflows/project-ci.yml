@@ -1,4 +1,4 @@
-name: Backend CI/CD
+name: Project CI
 
 env:
   BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
