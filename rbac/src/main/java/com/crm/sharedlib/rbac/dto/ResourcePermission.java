@@ -1,0 +1,23 @@
+package com.crm.sharedlib.rbac.dto;
+
+import com.crm.sharedlib.core.enums.Action;
+import com.crm.sharedlib.core.enums.Resource;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResourcePermission implements Serializable {
+
+    private Resource resource;
+
+    private List<Action> actions;
+
+}

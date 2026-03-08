@@ -8,4 +8,6 @@ public class CrmHeaders {
 
     public final static String ORGANIZATION_ID_HEADER_NAME = "Organization-Id";
 
+    public final static String USER_PERMISSIONS_HEADER_NAME = "User-Permissions";
+
 }
