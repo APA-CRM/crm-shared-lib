@@ -14,9 +14,16 @@ public enum Resource {
     ORGANIZATIONS("Organizations"),
     ROLES("Roles"),
     INVITATIONS("Invitations"),
-    FILES("Files");
+    FILES("Files"),
+    TASKS("Tasks"),
+    TASK_PRIORITIES("Task Priorities"),
+    TASK_STATUSES("Task Statuses");
 
+    /**
+     * @deprecated Remove this field. Formating must on the front-end side
+     */
     @JsonValue
+    @Deprecated(since = "0.2.2-SNAPSHOT")
     private final String name;
 
 }
