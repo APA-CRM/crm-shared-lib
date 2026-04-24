@@ -2,10 +2,7 @@ package com.crm.sharedlib.core.filter.criteria;
 
 import com.crm.sharedlib.core.dto.request.BaseFilterRequest;
 import com.crm.sharedlib.core.filter.Filter;
-import com.crm.sharedlib.core.filter.criteria.interfaces.CountableFilter;
-import com.crm.sharedlib.core.filter.criteria.interfaces.OrderByApplier;
-import com.crm.sharedlib.core.filter.criteria.interfaces.PageableBuilder;
-import com.crm.sharedlib.core.filter.criteria.interfaces.PredicateBuilder;
+import com.crm.sharedlib.core.filter.criteria.interfaces.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -30,6 +27,8 @@ public abstract class BaseCriteriaFilter<T> implements Filter<T> {
 
     protected abstract CountableFilter<T> getCountableFilter();
 
+    protected abstract JoinApplier<T> getJoinApplier();
+
     protected abstract PageableBuilder getPageableBuilder();
 
     protected abstract OrderByApplier<T> getOrderByApplier();
@@ -42,6 +41,8 @@ public abstract class BaseCriteriaFilter<T> implements Filter<T> {
 
         List<Predicate> predicates =
                 getPredicateBuilder().buildPredicates(request, builder, root);
+
+        getJoinApplier().applyJoin(root);
 
         query.where(predicates.toArray(new Predicate[0]));
 
