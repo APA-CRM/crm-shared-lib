@@ -18,6 +18,8 @@ public class RabbitMQConstants {
 
     public static final String CREATE_DEFAULT_TASK_STATUSES_QUEUE = "main-service.create-defaut-task-statuses";
 
+    public static final String REMIND_ABOUT_TASK_QUEUE = "notification-service.task-reminder";
+
     public final static String SEND_MESSAGE_QUEUE = "notification-service.send-message";
 
     public final static String CREATE_ROOT_DIR_QUEUE = "file-service.create-organization-root-dir";
@@ -33,5 +35,7 @@ public class RabbitMQConstants {
     public static final String ORGANIZATION_ROOT_DIR_CREATE_ROUTING_KEY = "org.root-dir.created";
 
     public final static String SEND_INVITATION_OF_ORGANIZATION_ROUTING_KEY = "notification-service.send-invitation-of-organization";
+
+    public final static String TASK_REMINDER_ROUTING_KEY = "org.task.remind";
 
 }
