@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -18,7 +19,7 @@ public class TaskReminderMessage {
 
     private String title;
 
-    private String statusName;
+    private List<String> emails;
 
     private Long organizationId;
 
