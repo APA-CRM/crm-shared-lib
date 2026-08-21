@@ -1,6 +1,5 @@
 package com.crm.sharedlib.core.enums;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -8,12 +7,10 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public enum Action {
 
-    ALL("All"),
-    CREATE("Create"),
-    READ("Read"),
-    UPDATE("Update"),
-    DELETE("Delete");
+    ALL,
+    CREATE,
+    READ,
+    UPDATE,
+    DELETE;
 
-    @JsonValue
-    private final String name;
 }
